@@ -8,8 +8,8 @@ Arquivo config.json
   "regexFile": [
     ""
   ],
-  "wrongPattern": "#define",
-  "rigthPattern": "namespace",
+  "wrongPattern": "",
+  "rigthPattern": "",
 }
 
 ```
