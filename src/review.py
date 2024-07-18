@@ -42,12 +42,12 @@ def findWrongPattern(filesForRegex, wrongPattern):
         with open(file, 'r', encoding='utf-8') as file:
             lines = file.readlines()
             for line_number, line in enumerate(lines, start=1):
-                if checkDefineExists(line, wrongPattern):
+                if checkWrongPatternExists(line, wrongPattern):
                     defines[line_number] = line
 
     return defines
 def getFileName(filePath):
     return os.path.basename(filePath)
 
-def checkDefineExists(line, wrong_pattern):
+def checkWrongPatternExists(line, wrong_pattern):
     return line.strip().startswith(wrong_pattern)
