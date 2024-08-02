@@ -25,7 +25,7 @@ def review(config):
         descr_comment = descr_comment.replace("${RIGHT_PATTERN}", rigth_pattern)
 
         comments.append(commons.comment_create(
-            comment_id=commons.comment_generate_id(descr_comment),
+            comment_id=commons.comment_generate_id(descr_comment+line_number),
             #TODO pegar o path do arquivo
             comment_path="",
             comment_description=descr_comment,
