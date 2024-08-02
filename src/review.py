@@ -13,7 +13,8 @@ def review(config):
 
     files_for_regex = []
     for change in changes:
-        if re.match(regex_list[0], get_file_name(change.get(path_source + '/' + changes['new_path']))):
+        if re.match(regex_list[0], get_file_name(path_source + '/' + change.get('new_path'))):
+            #TODO verificar se o arquivo vai vir no path_source ou new_path
             files_for_regex.append(change.get('new_path'))
 
     lines_to_comment = find_wrong_patterns(files_for_regex, wrong_pattern)
