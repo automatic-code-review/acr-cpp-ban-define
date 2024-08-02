@@ -1,15 +1,15 @@
-# acr-extension-name
+# acr-ban-define
 
 Arquivo config.json
 
 ```json
 {
   "message": "${WRONG_PATTERN} - ${LINE_NUMBER} - ${RIGHT_PATTERN}",
-  "regexFile": [
+  "regex_list": [
     ""
   ],
-  "wrongPattern": "",
-  "rigthPattern": "",
+  "wrong_pattern": "",
+  "rigth_pattern": "",
 }
 
 ```
