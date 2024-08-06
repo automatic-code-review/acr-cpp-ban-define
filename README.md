@@ -8,6 +8,7 @@ Arquivo config.json
   "regex_list": [
     ""
   ],
+  "path_ignore": [],
   "wrong_pattern": "",
   "rigth_pattern": "",
 }
