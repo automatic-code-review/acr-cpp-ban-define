@@ -15,7 +15,13 @@ def review(config):
     files_for_regex = []
     for change in changes:
         if re.match(regex_list[0], get_file_name(path_source + '/' + change.get('new_path'))):
-            if re.match(path_ignore, get_file_name(path_source + '/' + change.get('new_path'))):
+
+            ignore_file = False
+            for path_to_ignore in path_ignore:
+                if re.match(path_ignore[0], get_file_name(path_source + '/' + change.get('new_path'))):
+                    ignore_file = True
+
+            if not ignore_file:
                 files_for_regex.append(change.get('new_path'))
 
     wrong_declations = find_wrong_patterns(files_for_regex, wrong_pattern)
