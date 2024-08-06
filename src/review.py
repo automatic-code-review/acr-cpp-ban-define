@@ -8,15 +8,16 @@ def review(config):
     regex_list = config['regex_list']
     changes = merge['changes']
     path_source = config['path_source']
+    path_ignore = config['path_ignore']
 
     comments = []
 
     files_for_regex = []
     for change in changes:
         if re.match(regex_list[0], get_file_name(path_source + '/' + change.get('new_path'))):
-            files_for_regex.append(change.get('new_path'))
+            if re.match(path_ignore, get_file_name(path_source + '/' + change.get('new_path'))):
+                files_for_regex.append(change.get('new_path'))
 
-    #esse cara passa a retornar uma lista de objetos
     wrong_declations = find_wrong_patterns(files_for_regex, wrong_pattern)
 
     for wrong_declaration in wrong_declations:
