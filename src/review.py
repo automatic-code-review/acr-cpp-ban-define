@@ -38,18 +38,22 @@ def review(config):
     wrong_declations = find_wrong_patterns(files_for_regex, wrong_pattern)
 
     for wrong_declaration in wrong_declations:
+        path_relative = wrong_declaration['path'].replace(path_source, "")[1:]
+
         descr_comment = config['message']
         descr_comment = descr_comment.replace("${LINE_NUMBER}", str(wrong_declaration['line_number']))
         descr_comment = descr_comment.replace("${WRONG_PATTERN}",
                                               str(wrong_declaration['wrong_pattern']).replace("\n", ""))
         descr_comment = descr_comment.replace("${RIGHT_PATTERN}", rigth_pattern)
+        descr_comment = descr_comment.replace("${FILE_PATH}", path_relative)
 
         comments.append(commons.comment_create(
             comment_id=commons.comment_generate_id(path_source + str(wrong_declaration['line_number'])),
-            comment_path=wrong_declaration['path'].replace(path_source, "")[1:],
+            comment_path=path_relative,
             comment_description=descr_comment,
             comment_end_line=wrong_declaration['line_number'],
             comment_start_line=wrong_declaration['line_number'],
+            comment_language='c++',
         ))
 
     return comments
