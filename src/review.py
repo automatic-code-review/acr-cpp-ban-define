@@ -48,7 +48,7 @@ def review(config):
         descr_comment = descr_comment.replace("${FILE_PATH}", path_relative)
 
         comments.append(commons.comment_create(
-            comment_id=commons.comment_generate_id(path_source + str(wrong_declaration['line_number'])),
+            comment_id=commons.comment_generate_id(path_relative + str(wrong_declaration['line_number'])),
             comment_path=path_relative,
             comment_description=descr_comment,
             comment_end_line=wrong_declaration['line_number'],
