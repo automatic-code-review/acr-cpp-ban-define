@@ -16,6 +16,9 @@ def review(config):
 
     files_for_regex = []
     for change in changes:
+        if change['deleted_file']:
+            continue
+
         new_path = path_source + '/' + change['new_path']
         verifica = False
 
