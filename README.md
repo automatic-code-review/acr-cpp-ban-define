@@ -1,4 +1,4 @@
-# acr-ban-define
+# acr-cpp-ban-define
 
 Arquivo config.json
 
